@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/fondoprincipal"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MenuDias">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo" />
+
+
+    <Button
+        android:id="@+id/btnDomingoRamos"
+        style="@style/MenuButton"
+        android:text="Domingo de Ramos" />
+
+    <Button
+        android:id="@+id/btnLunesSanto"
+        style="@style/MenuButton"
+        android:text="Lunes Santo" />
+
+    <Button
+        android:id="@+id/btnMartesSanto"
+        style="@style/MenuButton"
+        android:text="Martes Santo" />
+
+    <Button
+        android:id="@+id/btnMiercolesSanto"
+        style="@style/MenuButton"
+        android:text="Miércoles Santo" />
+
+    <Button
+        android:id="@+id/btnJuevesSanto"
+        style="@style/MenuButton"
+        android:text="Jueves Santo" />
+
+    <Button
+        android:id="@+id/btnMadruga"
+        style="@style/MenuButton"
+        android:text="Madruga" />
+
+    <Button
+        android:id="@+id/btnViernesSanto"
+        style="@style/MenuButton"
+        android:text="Viernes Santo" />
+
+    <Button
+        android:id="@+id/btnSabadoSanto"
+        style="@style/MenuButton"
+        android:text="Sábado Santo" />
+
+    <Button
+        android:id="@+id/btnDomingoResurreccion"
+        style="@style/MenuButton"
+        android:text="Domingo de Resurrección" />
+
+    <Button
+        android:id="@+id/btnTodasLasHermandades"
+        style="@style/MenuButton"
+        android:text="Todas las Hermandades" />
+
+
+
+
+</LinearLayout>
