@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.NavigationComponetExample" parent="Base.Theme.NavigationComponetExample" />
+    <style name="Theme.NavigationComponetExample.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.NavigationComponetExample.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.NavigationComponetExample.PopupOverlay"
+        parent="ThemeOverlay.AppCompat.Light" />
 </resources>

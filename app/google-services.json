@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "609034309246",
+    "project_id": "capatapp-ef801",
+    "storage_bucket": "capatapp-ef801.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609034309246:android:348c143b127d042bc3122f",
+        "android_client_info": {
+          "package_name": "com.alvarols01.capatapp2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0ENKTDvnKZYurKAjsi2NRhKr-hwcvL2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
