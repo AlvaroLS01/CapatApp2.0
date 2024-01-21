@@ -9,5 +9,6 @@
     <color name="fondoprincipal">#947ab7</color>
     <color name="fondoclaro">#dfd4ed</color>
     <color name="button_background">#6750a4</color>
+    <color name="splashscreencolor">#60096F</color>
     <color name="gray">#787878</color>
 </resources>
