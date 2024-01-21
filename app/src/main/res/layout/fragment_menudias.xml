@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:background="@color/fondoprincipal"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".MenuDias">
+    android:fillViewport="true"
+    android:background="@color/fondoprincipal">
 
-
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/logo" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        tools:context=".MenuDias">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo" />
 
 
     <Button
@@ -67,7 +72,13 @@
         style="@style/MenuButton"
         android:text="Todas las Hermandades" />
 
+    <Button
+        android:id="@+id/btnMisFavoritasInicioSesion"
+        style="@style/BotonInicio"
+        android:text="Mis Favoritas / Inicio de Sesión" />
 
 
+    </LinearLayout>
+</ScrollView>
 
-</LinearLayout>
+
