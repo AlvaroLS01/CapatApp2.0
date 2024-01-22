@@ -2,24 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondoprincipal"
-    android:padding="16dp">
+    android:id="@+id/gradientBackground"
+    android:background="@drawable/gradient_background"
+    android:paddingTop="50dp"
+    android:paddingStart="26dp"
+    android:paddingEnd="26dp">
 
-    <!-- Logo -->
+    <!-- Logo de la aplicación -->
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/splashscreenlogo"
+        android:src="@drawable/logologin"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Campo de Email -->
+    <TextView
+        android:id="@+id/bienvenidoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoImageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"/>
+        android:text="¡Bienvenido!"
+        android:textColor="@android:color/white"
+        android:textSize="54sp"
+        android:fontFamily="cursive"/>
 
     <!-- Campo de Email -->
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logoImageView"
+        android:layout_below="@id/bienvenidoTextView"
         android:layout_marginTop="16dp"
         android:hint="Email"
         android:inputType="textEmailAddress"/>
@@ -35,7 +49,6 @@
         android:inputType="textPassword"/>
 
     <!-- Botón de Log In con color celeste -->
-
     <Button
         android:id="@+id/btnAcceder"
         android:layout_width="match_parent"
@@ -56,14 +69,26 @@
         android:background="@color/yellow"/>
 
     <Button
-        android:id="@+id/googleButton"
+        android:id="@+id/btnGoogle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_below="@id/btnRegistrar"
         android:layout_marginTop="8dp"
-        android:text="GOOGLE"
-        android:background="@color/white"/>
+        android:background="@color/white"
+        android:drawableTop="@drawable/google_logo"/>
 
-
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/btnGoogle"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:indeterminate="true"
+        android:indeterminateTint="#E91E63"
+        android:progressBackgroundTint="#C0C0C0"
+        android:progressTint="#E91E63"/>
 
 </RelativeLayout>
