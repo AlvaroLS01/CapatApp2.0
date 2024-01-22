@@ -35,8 +35,9 @@
         android:inputType="textPassword"/>
 
     <!-- Botón de Log In con color celeste -->
+
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/btnAcceder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordEditText"
@@ -46,11 +47,23 @@
 
     <!-- Botón de Sign Up con color gris -->
     <Button
-        android:id="@+id/signupButton"
+        android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginButton"
+        android:layout_below="@id/btnAcceder"
         android:layout_marginTop="8dp"
         android:text="Sign Up"
         android:background="@color/yellow"/>
+
+    <Button
+        android:id="@+id/googleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnRegistrar"
+        android:layout_marginTop="8dp"
+        android:text="GOOGLE"
+        android:background="@color/white"/>
+
+
+
 </RelativeLayout>

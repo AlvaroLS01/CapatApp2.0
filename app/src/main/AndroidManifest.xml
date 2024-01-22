@@ -14,19 +14,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NavigationComponetExample"
         tools:targetApi="31">
+
+        <!-- Configurar el splash screen para AuthActivity -->
         <activity
             android:name=".AuthActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/SplahTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Mantener MainActivity para otras transiciones -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/SplahTheme">
+            <!-- Puedes tener un intent-filter si MainActivity también debe ser lanzada directamente -->
+        </activity>
+
     </application>
 
 </manifest>

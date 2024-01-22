@@ -1,75 +1,74 @@
 package com.alvarols01.capatapp2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.content.Intent
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
-import com.alvarols01.capatapp2.databinding.ActivityAuthBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class AuthActivity : AppCompatActivity() {
-
-    private lateinit var binding : ActivityAuthBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAuthBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_auth)
 
         setup()
     }
 
     private fun setup() {
-        title = "Autenticación"
 
-        binding.signupButton.setOnClickListener {
-            if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty()) {
+        val btnRegistrar: Button = findViewById(R.id.btnRegistrar)
+        val btnAcceder : Button = findViewById(R.id.btnAcceder)
+        val editTextEmail: EditText = findViewById(R.id.emailEditText)
+        val editTextPassword: EditText = findViewById(R.id.passwordEditText)
 
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(
-                    binding.emailEditText.text.toString(),
-                    binding.passwordEditText.text.toString()
-                ).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        showHome(it.result?.user?.email ?: "", HomeActivity.ProviderType.BASIC)
-                    } else {
-                        showAlert()
+        btnRegistrar.setOnClickListener {
+            if (editTextEmail.text.isNotEmpty() && editTextPassword.text.isNotEmpty()) {
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(editTextEmail.text.toString(), editTextPassword.text.toString())
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            //it.result?.user?.email ?: "" --> si no se ha introducido un email, no da error (siempre existirá un email)
+                            showHome(it.result?.user?.email ?: "", ProviderType.BASIC, editTextEmail)
+                        } else {
+                            showAlert()
+                        }
                     }
-                }
             }
         }
 
-        binding.loginButton.setOnClickListener {
-            if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty()) {
-
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(
-                    binding.emailEditText.text.toString(),
-                    binding.passwordEditText.text.toString()
-                ).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        showHome(it.result?.user?.email ?: "", HomeActivity.ProviderType.BASIC)
-                    } else {
-                        showAlert()
+        btnAcceder.setOnClickListener {
+            if (editTextEmail.text.isNotEmpty() && editTextPassword.text.isNotEmpty()) {
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(editTextEmail.text.toString(), editTextPassword.text.toString())
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            showHome(it.result?.user?.email ?: "", ProviderType.BASIC, editTextEmail)
+                        } else {
+                            showAlert()
+                        }
                     }
-                }
             }
         }
 
     }
 
-    fun showAlert() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error en la autenticación del usuario")
-        builder.setPositiveButton("Aceptar", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
-    }
-
-    private fun showHome(email: String, provider: HomeActivity.ProviderType) {
-        val homeIntent = Intent(this, HomeActivity::class.java).apply {
-            putExtra("email", email)
+    private fun showHome(email : String, provider : ProviderType, editTextEmail: EditText) {
+        //Función que muestra la pantalla principal de la aplicación
+        val homeIntent = Intent(this, MainActivity::class.java).apply {
+            putExtra("email", editTextEmail.text.toString())
             putExtra("provider", provider.name)
         }
         startActivity(homeIntent)
     }
-}
 
+    private fun showAlert() {
+        //Función que muestra un mensaje de error en caso de que el usuario no se haya podido registrar
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("Se ha producido un error en el registro")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+
+    }
+}
