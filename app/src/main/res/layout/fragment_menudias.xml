@@ -73,9 +73,9 @@
         android:text="Todas las Hermandades" />
 
     <Button
-        android:id="@+id/btnMisFavoritasInicioSesion"
+        android:id="@+id/btnMisFavoritasCerrarSesion"
         style="@style/BotonInicio"
-        android:text="Mis Favoritas / Inicio de Sesión" />
+        android:text="Mis Favoritas / Cerrar Sesión" />
 
 
     </LinearLayout>

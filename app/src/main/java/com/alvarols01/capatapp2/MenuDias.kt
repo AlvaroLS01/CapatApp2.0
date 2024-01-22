@@ -67,9 +67,9 @@ class MenuDias : Fragment() {
             findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesList"))
         }
 
-        val btnMisFavoritasInicioSesion = root.findViewById<Button>(R.id.btnMisFavoritasInicioSesion)
+        val btnMisFavoritasInicioSesion = root.findViewById<Button>(R.id.btnMisFavoritasCerrarSesion)
         btnMisFavoritasInicioSesion.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToAuthActivity())
+            findNavController().navigate(MenuDiasDirections.actionMenuDiasToLogOutActivity())
         }
 
         return root

@@ -40,6 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/providerTextView"
         android:layout_marginTop="16dp"
-        android:text="Log Out"
-        android:background="@color/red"/>
+        android:text="LOG OUT"
+        android:textColor="@android:color/black"
+        android:background="@android:color/holo_red_dark" />
+
 </RelativeLayout>

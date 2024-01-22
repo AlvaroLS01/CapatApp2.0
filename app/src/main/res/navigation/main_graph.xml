@@ -16,8 +16,8 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
         <action
-            android:id="@+id/action_menuDias_to_authActivity"
-            app:destination="@id/authActivity" />
+            android:id="@+id/action_menuDias_to_logOutActivity"
+            app:destination="@id/logOutActivity" />
     </fragment>
     <fragment
         android:id="@+id/dia"
@@ -29,7 +29,7 @@
             app:argType="string" />
     </fragment>
     <activity
-        android:id="@+id/authActivity"
-        android:name="com.alvarols01.capatapp2.AuthActivity"
-        android:label="AuthActivity" />
+        android:id="@+id/logOutActivity"
+        android:name="com.alvarols01.capatapp2.LogOutActivity"
+        android:label="LogOutActivity" />
 </navigation>
