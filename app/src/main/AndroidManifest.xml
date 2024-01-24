@@ -15,9 +15,16 @@
         android:theme="@style/Theme.NavigationComponetExample"
         tools:targetApi="31">
         <activity
-            android:name=".LogOutActivity"
+            android:name=".Map"
             android:exported="false" />
-        <!-- Configurar el splash screen para AuthActivity -->
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".RegistroActivity"
+            android:exported="false" /> <!-- Configurar el splash screen para AuthActivity -->
         <activity
             android:name=".AuthActivity"
             android:exported="true"
@@ -35,6 +42,9 @@
 
             <!-- Puedes tener un intent-filter si MainActivity también debe ser lanzada directamente -->
         </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="Profile Activity" />
     </application>
 
 </manifest>

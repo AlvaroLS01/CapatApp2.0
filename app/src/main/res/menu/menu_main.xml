@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:icon="@drawable/logout"
+        android:title="Salir"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_map"
+        android:orderInCategory="100"
+        android:icon="@drawable/mapicon"
+        android:title="Recorrido"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_home"
+        android:orderInCategory="100"
+        android:icon="@drawable/home"
+        android:title="Home"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/action_favorite"
+        android:orderInCategory="100"
+        android:icon="@drawable/starfav"
+        android:title="Favoritos"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_profile"
+        android:orderInCategory="100"
+        android:icon="@drawable/profileuser"
+        android:title="Perfil"
+        app:showAsAction="always" />
+</menu>

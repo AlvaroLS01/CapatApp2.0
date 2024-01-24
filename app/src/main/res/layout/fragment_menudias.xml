@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@drawable/gradient_background">
+    android:layout_gravity="center"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+    tools:context=".MenuDias">
 
-    <LinearLayout
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="15dp"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        tools:context=".MenuDias">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/logo" />
+        android:layout_height="58dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo" />
 
 
     <Button
@@ -74,13 +69,8 @@
         style="@style/MenuButton"
         android:text="Todas las Hermandades" />
 
-    <Button
-        android:id="@+id/btnMisFavoritasCerrarSesion"
-        style="@style/BotonInicio"
-        android:text="Mis Favoritas / Cerrar Sesión" />
 
 
-    </LinearLayout>
-</ScrollView>
 
 
+</LinearLayout>

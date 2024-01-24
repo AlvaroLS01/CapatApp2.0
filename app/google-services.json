@@ -12,7 +12,20 @@
           "package_name": "com.alvarols01.capatapp2"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "609034309246-8c28lahgodmt4uba8hoiiogs09sh64q8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alvarols01.capatapp2",
+            "certificate_hash": "0dffadddfdd107b7f947788c8a0c41e01a56a11f"
+          }
+        },
+        {
+          "client_id": "609034309246-9c3t3tff135qoccpk81i8hjgascp1ie8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC0ENKTDvnKZYurKAjsi2NRhKr-hwcvL2A"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609034309246-9c3t3tff135qoccpk81i8hjgascp1ie8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/gradientBackground"
+    android:background="@drawable/gradient_background"
+    android:paddingTop="20dp"
+    android:paddingStart="26dp"
+    android:paddingEnd="26dp">
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logologin"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Campo de Texto Nuevo Usuario -->
+    <TextView
+        android:id="@+id/bienvenidoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:layout_below="@id/logoImageView"
+        android:layout_centerHorizontal="true"
+        android:text="¡Nuevo Usuario!"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        android:fontFamily="cursive"/>
+
+    <!-- Campo de Nombre -->
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/bienvenidoTextView"
+        android:layout_marginTop="8dp"
+        android:hint="Nombre"/>
+
+    <!-- Campo de Apellido -->
+    <EditText
+        android:id="@+id/lastNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/nameEditText"
+        android:layout_marginTop="4dp"
+        android:hint="Apellido"/>
+
+    <!-- Campo de Teléfono -->
+    <EditText
+        android:id="@+id/phoneEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/lastNameEditText"
+        android:layout_marginTop="4dp"
+        android:hint="Teléfono"
+        android:inputType="phone"/>
+
+    <!-- Campo de Email -->
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/phoneEditText"
+        android:layout_marginTop="4dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"/>
+
+    <!-- Campo de Contraseña -->
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginTop="4dp"
+        android:hint="Password"
+        android:inputType="textPassword"/>
+
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordEditText"
+        android:layout_marginTop="6dp"
+        android:text="Sign Up"
+        android:background="@color/yellow"/>
+
+    <TextView
+        android:id="@+id/tienesCuentaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="14dp"
+        android:layout_below="@id/btnRegistrar"
+        android:layout_centerHorizontal="true"
+        android:text="¿Ya tienes cuenta?"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:fontFamily="cursive"/>
+
+    <Button
+        android:id="@+id/btnAcceder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tienesCuentaTextView"
+        android:layout_marginTop="8dp"
+        android:text="Log In"
+        android:background="@color/botton_inicio"/>
+
+
+    <Button
+        android:id="@+id/btnGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/btnAcceder"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:drawableTop="@drawable/google_logo"/>
+
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/btnGoogle"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:indeterminate="true"
+        android:indeterminateTint="#E91E63"
+        android:progressBackgroundTint="#C0C0C0"
+        android:progressTint="#E91E63"/>
+
+</RelativeLayout>
