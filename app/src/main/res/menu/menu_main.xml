@@ -4,10 +4,10 @@
 
 
     <item
-        android:id="@+id/action_logout"
+        android:id="@+id/action_hermandades"
         android:orderInCategory="100"
-        android:icon="@drawable/logout"
-        android:title="Salir"
+        android:icon="@drawable/hermandades"
+        android:title="Hermandades"
         app:showAsAction="always" />
 
     <item

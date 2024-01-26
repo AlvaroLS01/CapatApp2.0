@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         Thread.sleep(2000)
         setTheme(R.style.AppTheme)
 
+
         //Setup
         val bundle = intent.extras
         val email = bundle?.getString("email")
@@ -39,33 +40,28 @@ class MainActivity : AppCompatActivity() {
        prefs.putString("provider", provider)
        prefs.apply()
 
+
+
     }
 
     private fun setup(email: String, provider: String) {
         title = "Inicio"
 
+
+
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.action_logout -> {
-                    // Tu lógica de cierre de sesión aquí
-                    FirebaseAuth.getInstance().signOut()
-                    val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-                    prefs.clear()
-                    prefs.apply()
-                    val loginIntent = Intent(this, AuthActivity::class.java).apply {
-                        putExtra("email", email)
-                        putExtra("provider", provider)
-                    }
-                    startActivity(loginIntent)
-                    finish()
+                R.id.action_home -> {
+                    findNavController(R.id.navHostFragment).navigate(R.id.HomeFragment)
                     true
                 }
 
-                R.id.action_home -> {
+                R.id.action_hermandades -> {
                     findNavController(R.id.navHostFragment).navigate(R.id.menuDias)
                     true
                 }
+
 
                 R.id.action_profile -> {
                     findNavController(R.id.navHostFragment).navigate(R.id.ProfileFragment)
@@ -74,6 +70,11 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.action_map -> {
                     findNavController(R.id.navHostFragment).navigate(R.id.mapFragment)
+                    true
+                }
+
+                R.id.action_favorite -> {
+                    findNavController(R.id.navHostFragment).navigate(R.id.favoritos)
                     true
                 }
 

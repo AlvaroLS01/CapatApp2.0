@@ -14,6 +14,20 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:cardBackgroundColor="#D000FF"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="4dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="4dp">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="12dp"
@@ -27,5 +41,8 @@
             tools:context=".MapFragment" />
 
     </androidx.cardview.widget.CardView>
+    </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
 
 </FrameLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/menuDias">
+    app:startDestination="@id/HomeFragment">
 
     <fragment
         android:id="@+id/menuDias"
@@ -15,15 +15,6 @@
             app:destination="@id/dia"
             app:enterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/action_menuDias_to_authActivity"
-            app:destination="@id/authActivity" />
-        <action
-            android:id="@+id/action_menuDias_to_profileFragment"
-            app:destination="@id/ProfileFragment" />
-        <action
-            android:id="@+id/action_menuDias_to_mapFragment"
-            app:destination="@id/mapFragment" />
     </fragment>
     <fragment
         android:id="@+id/dia"
@@ -47,4 +38,17 @@
         android:name="com.alvarols01.capatapp2.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.alvarols01.capatapp2.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/favoritos"
+        android:name="com.alvarols01.capatapp2.Favoritos"
+        android:label="Favoritos" />
+    <activity
+        android:id="@+id/registroActivity"
+        android:name="com.alvarols01.capatapp2.RegistroActivity"
+        android:label="RegistroActivity" />
 </navigation>

@@ -27,7 +27,7 @@
         android:layout_below="@id/emailTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="POVIDER"
+        android:text="PROVIDER"
         android:textSize="18sp" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_below="@id/providerTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="POVIDER"
+        android:text="NAME"
         android:textSize="18sp" />
 
     <TextView
@@ -47,7 +47,7 @@
         android:layout_below="@id/nameTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="POVIDER"
+        android:text="LAST NAME"
         android:textSize="18sp" />
 
     <TextView
@@ -57,8 +57,17 @@
         android:layout_below="@id/lastNameTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="POVIDER"
+        android:text="PHONE"
         android:textSize="18sp" />
 
+    <!-- Botón para Logout -->
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:text="Logout" />
 
 </RelativeLayout>
