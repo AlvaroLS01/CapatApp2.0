@@ -50,6 +50,9 @@ class MainActivity : AppCompatActivity() {
 
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+
+        bottomNavigationView.selectedItemId = R.id.action_home
+
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_home -> {

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/gradientBackground"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/background"
     android:paddingTop="50dp"
     android:paddingStart="26dp"
     android:paddingEnd="26dp">

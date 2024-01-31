@@ -2,6 +2,8 @@ package com.alvarols01.capatapp2
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +16,8 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.CustomCap
 import com.google.android.gms.maps.model.Dot
 import com.google.android.gms.maps.model.Gap
 import com.google.android.gms.maps.model.LatLng
@@ -54,13 +58,31 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun createMaker() {
+        val iconSize = 50 // Tamaño deseado de la imagen del marcador
+
         val cordinates = LatLng(37.34984390388584, -5.942909872195713)
         val iesHnosMachado = MarkerOptions().position(cordinates).title("IES Hermanos Machado")
+            .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.cruzdeguia, iconSize)))
+
+        val pasocoordenadas = LatLng(37.347095772571194, -5.942611395920494)
+        val paso = MarkerOptions().position(pasocoordenadas).title("PASO")
+            .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.paso, iconSize)))
+
         val cordinatesAnexo = LatLng(37.34350420769776, -5.938057206631157)
         val anexoHermanosMachado = MarkerOptions().position(cordinatesAnexo).title("ANEXO - IES Hermanos Machado")
-        map.addMarker(anexoHermanosMachado)
+            .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.virgen, iconSize)))
+
+
+
         map.addMarker(iesHnosMachado)
+        map.addMarker(anexoHermanosMachado)
+        map.addMarker(paso)
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(cordinates, 16f), 4000, null)
+    }
+
+    private fun resizeBitmap(resourceId: Int, newSize: Int): Bitmap {
+        val originalBitmap = BitmapFactory.decodeResource(resources, resourceId)
+        return Bitmap.createScaledBitmap(originalBitmap, 80, 80, false)
     }
 
 
@@ -87,6 +109,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         val polyline = map.addPolyline(polylineOptions)
         val pattern = listOf(Dot(), Gap(15f))
         polyline.pattern = pattern
+        //polyline.startCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.cruzdeguia), 130f)
+        //polyline.endCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.paso), 130f)
     }
 
 
