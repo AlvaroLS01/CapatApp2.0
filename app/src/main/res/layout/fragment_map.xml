@@ -8,13 +8,13 @@
     android:paddingLeft="35dp"
     android:paddingRight="35dp"
     android:paddingBottom="90dp"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/fondogeneral"
     android:gravity="center">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardBackgroundColor="#D000FF"
+        app:cardBackgroundColor="#6A1B9A"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp">
 

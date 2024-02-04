@@ -4,70 +4,135 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center"
-    android:background="@drawable/background"
+    android:background="@drawable/fondogeneral"
     android:orientation="vertical"
     android:paddingTop="5dp"
     android:paddingStart="5dp"
     android:paddingEnd="5dp"
     tools:context=".ProfileFragment">
 
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/perfil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:adjustViewBounds="true" />
+
+    <TextView
+        android:id="@+id/emailRegistroTextView"
+        android:layout_below="@id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Email de registro:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent" />
+
     <TextView
         android:id="@+id/emailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/emailRegistroTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:text="EMAIL"
-        android:textSize="18sp" />
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary" />
 
     <TextView
-        android:id="@+id/providerTextView"
+        android:id="@+id/proveedorRegistroTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/emailTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="PROVIDER"
-        android:textSize="18sp" />
-
+        android:layout_marginTop="10dp"
+        android:text="Proveedor del registro:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent" />
     <TextView
-        android:id="@+id/nameTextView"
+        android:id="@+id/providerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/proveedorRegistroTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="EMAIL"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary" />
+
+    <EditText
+        android:id="@+id/editNombreUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/providerTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="NAME"
-        android:textSize="18sp" />
+        android:layout_marginTop="10dp"
+        android:hint="Usuario"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent" />
 
-    <TextView
-        android:id="@+id/lastNameTextView"
+    <EditText
+        android:id="@+id/editTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/nameTextView"
+        android:layout_below="@id/editNombreUsuario"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="LAST NAME"
-        android:textSize="18sp" />
+        android:layout_marginTop="10dp"
+        android:hint="Telefono"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent" />
 
-    <TextView
-        android:id="@+id/phoneTextView"
+
+
+    <Button
+        android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lastNameTextView"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:layout_below="@id/editTelefono"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="PHONE"
-        android:textSize="18sp" />
+        android:layout_marginTop="10dp"
+        android:text="Guardar" />
+    <Button
+        android:id="@+id/btnRecuperar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:layout_below="@id/btnGuardar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Recuperar" />
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:layout_below="@id/btnRecuperar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Eliminar" />
 
-    <!-- Botón para Logout -->
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/phoneTextView"
+        android:background="@color/colorprincipal"
+        android:textColor="@color/white"
+        android:layout_below="@id/btnEliminar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="10dp"
         android:text="Logout" />
 
 </RelativeLayout>

@@ -46,8 +46,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setup(email: String, provider: String) {
         title = "Inicio"
-
-
+        
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 

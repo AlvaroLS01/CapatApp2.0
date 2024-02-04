@@ -1,94 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/gradientBackground"
-    android:background="@drawable/background"
-    android:paddingTop="50dp"
-    android:paddingStart="26dp"
-    android:paddingEnd="26dp">
+    android:background="@drawable/fondolog"
+    android:padding="16dp">
 
-    <!-- Logo de la aplicación -->
-    <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/logologin"
-        android:layout_centerHorizontal="true" />
-
-    <!-- Campo de Email -->
-    <TextView
-        android:id="@+id/bienvenidoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logoImageView"
-        android:layout_centerHorizontal="true"
-        android:text="¡Bienvenido!"
-        android:textColor="@android:color/white"
-        android:textSize="54sp"
-        android:fontFamily="cursive"/>
-
-    <!-- Campo de Email -->
-    <EditText
-        android:id="@+id/emailEditText"
+    <!-- CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bienvenidoTextView"
-        android:layout_marginTop="16dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"/>
+        android:layout_centerInParent="true"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="8dp"
+        card_view:cardBackgroundColor="#FFFFFF"
+        android:layout_margin="16dp"
+        android:padding="16dp">
+
+        <!-- Contenedor interno para el contenido del CardView -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Logo de la aplicación -->
+<ImageView
+android:id="@+id/logoImageView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:src="@drawable/logologin"
+android:layout_centerHorizontal="true"
+android:layout_marginTop="32dp"
+android:maxWidth="80dp"
+android:maxHeight="80dp"
+android:adjustViewBounds="true" />
+
+    <!-- Título de Bienvenida -->
+<TextView
+android:id="@+id/bienvenidoTextView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_below="@id/logoImageView"
+android:layout_centerHorizontal="true"
+android:layout_marginTop="16dp"
+android:text="¡Bienvenido!"
+android:textColor="#9455BA"
+    android:textSize="24sp"
+    android:fontFamily="sans-serif-medium"/>
+
+    <!-- Campo de Email -->
+<EditText
+android:id="@+id/emailEditText"
+android:layout_width="match_parent"
+android:layout_height="40dp"
+    android:layout_below="@id/bienvenidoTextView"
+    android:layout_marginTop="24dp"
+    android:hint="Email"
+    android:background="@drawable/rounded_edittext"
+    android:padding="12dp"
+    android:inputType="textEmailAddress"/>
 
     <!-- Campo de Contraseña -->
-    <EditText
-        android:id="@+id/passwordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/emailEditText"
-        android:layout_marginTop="8dp"
-        android:hint="Password"
-        android:inputType="textPassword"/>
+<EditText
+android:id="@+id/passwordEditText"
+android:layout_width="match_parent"
+android:layout_height="40dp"
+    android:layout_below="@id/emailEditText"
+    android:layout_marginTop="16dp"
+    android:hint="Password"
+    android:background="@drawable/rounded_edittext"
+    android:padding="12dp"
+    android:inputType="textPassword"/>
 
-    <!-- Botón de Log In con color celeste -->
-    <Button
-        android:id="@+id/btnAcceder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/passwordEditText"
-        android:layout_marginTop="16dp"
-        android:text="Log In"
-        android:background="@color/botton_inicio"/>
+    <!-- Botón de Log In -->
+<Button
+android:id="@+id/btnAcceder"
+android:layout_width="match_parent"
+android:layout_height="40dp"
+    android:layout_below="@id/passwordEditText"
+    android:layout_marginTop="16dp"
+    android:text="Log In"
+    android:background="@drawable/rounded_button"
+    android:textColor="#FFFFFF"/>
 
-    <!-- Botón de Sign Up con color gris -->
-    <Button
-        android:id="@+id/btnRegistrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnAcceder"
-        android:layout_marginTop="8dp"
-        android:text="Sign Up"
-        android:background="@color/yellow"/>
+    <!-- Botón de Sign Up -->
+<Button
+android:id="@+id/btnRegistrar"
+android:layout_width="match_parent"
+android:layout_height="40dp"
+    android:layout_below="@id/btnAcceder"
+    android:layout_marginTop="12dp"
+    android:text="Sign Up"
+    android:background="@drawable/rounded_button"
+    android:textColor="#FFFFFF"/>
 
-    <Button
-        android:id="@+id/btnGoogle"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@id/btnRegistrar"
-        android:layout_marginTop="8dp"
-        android:background="@color/white"
-        android:drawableTop="@drawable/google_logo"/>
+    <!-- Botón de Google -->
+<Button
+android:id="@+id/btnGoogle"
+android:layout_width="match_parent"
+android:layout_height="40dp"
+    android:layout_below="@id/btnRegistrar"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/rounded_button"
+    android:text="CONTINUE WITH GOOGLE"
+    android:textColor="#FFFFFF"
+    android:textSize="14sp"
+    android:drawableStart="@drawable/google_logo"
+    android:drawablePadding="16dp"
+    android:gravity="center_vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:textAllCaps="false"/>
 
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- ProgressBar fuera del CardView para mantenerlo en la pantalla principal -->
     <ProgressBar
         android:id="@+id/loadingProgressBar"
-        android:layout_width="140dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardView"
         android:layout_marginTop="16dp"
-        android:layout_below="@id/btnGoogle"
-        android:layout_centerHorizontal="true"
         android:visibility="invisible"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        style="?android:attr/progressBarStyleHorizontal"
         android:indeterminate="true"
         android:indeterminateTint="#E91E63"
-        android:progressBackgroundTint="#C0C0C0"
+        android:minHeight="4dp"
         android:progressTint="#E91E63"/>
 
 </RelativeLayout>

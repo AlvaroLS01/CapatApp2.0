@@ -47,7 +47,6 @@ class RegistroActivity : AppCompatActivity() {
         val btnAcceder: Button = findViewById(R.id.btnAcceder)
         val editTextEmail: EditText = findViewById(R.id.emailEditText)
         val editTextPassword: EditText = findViewById(R.id.passwordEditText)
-        val btnGoogle: Button = findViewById(R.id.btnGoogle)
 
         btnRegistrar.setOnClickListener {
             loadingProgressBar.visibility = View.VISIBLE
@@ -58,7 +57,6 @@ class RegistroActivity : AppCompatActivity() {
                 )
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            //it.result?.user?.email ?: "" --> si no se ha introducido un email, no da error (siempre existirá un email)
                             showHome(
                                 it.result?.user?.email ?: "",
                                 ProviderType.BASIC,
@@ -67,7 +65,6 @@ class RegistroActivity : AppCompatActivity() {
                         } else {
                             showAlert()
                         }
-                        hideProgressBarAfterDelay()
                     }
             }
         }
@@ -79,33 +76,18 @@ class RegistroActivity : AppCompatActivity() {
             hideProgressBarAfterDelay()
         }
 
-        btnGoogle.setOnClickListener {
-            loadingProgressBar.visibility = View.VISIBLE
-            val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build()
-
-            val googleClient = GoogleSignIn.getClient(this, googleConf)
-            googleClient.signOut()
-
-            startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
-        }
-
     }
-
 
 
 
     private fun showHome(email: String, provider: ProviderType, editTextEmail: EditText) {
-        // Función que muestra la pantalla principal de la aplicación
         val homeIntent = Intent(this, MainActivity::class.java).apply {
-            putExtra("email", editTextEmail.text.toString())
+            putExtra("email", email)
             putExtra("provider", provider.name)
         }
         startActivity(homeIntent)
-
     }
+
 
     private fun showAlert() {
         // Función que muestra un mensaje de error en caso de que el usuario no se haya podido registrar
@@ -116,41 +98,6 @@ class RegistroActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
 
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        // Función que se ejecuta cuando se ha iniciado sesión con Google
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == GOOGLE_SIGN_IN) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-
-                val account = task.getResult(ApiException::class.java)
-
-                if (account != null) {
-                    val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-                    FirebaseAuth.getInstance().signInWithCredential(credential)
-                        .addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                showHome(
-                                    account.email ?: "",
-                                    ProviderType.GOOGLE,
-                                    findViewById(R.id.emailEditText)
-                                )
-                            } else {
-                                showAlert()
-                            }
-                            hideProgressBarAfterDelay()
-                        }
-                }
-
-            } catch (e: ApiException) {
-                showAlert()
-            }
-
-
-        }
     }
 
 
