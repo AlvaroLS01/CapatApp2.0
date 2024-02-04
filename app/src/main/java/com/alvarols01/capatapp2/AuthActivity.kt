@@ -101,9 +101,10 @@ class AuthActivity : AppCompatActivity() {
         val homeIntent = Intent(this, MainActivity::class.java).apply {
             putExtra("email", editTextEmail.text.toString())
             putExtra("provider", provider.name)
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         }
         startActivity(homeIntent)
-
+        finish() // Esto finalizará la actividad actual, para que no pueda volver atrás
     }
 
     private fun showAlert() {
