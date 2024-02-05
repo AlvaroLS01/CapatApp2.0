@@ -36,7 +36,7 @@ class MenuDias : Fragment() {
 
         val btnMiercolesSanto = root.findViewById<Button>(R.id.btnMiercolesSanto)
         btnMiercolesSanto.setOnClickListener {
-            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Miercoles Santo")
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Miércoles Santo")
             findNavController().navigate(action)
         }
 
@@ -60,7 +60,7 @@ class MenuDias : Fragment() {
 
         val btnSabadoSanto = root.findViewById<Button>(R.id.btnSabadoSanto)
         btnSabadoSanto.setOnClickListener {
-            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Sabado Santo")
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Sábado Santo")
             findNavController().navigate(action)
         }
 
