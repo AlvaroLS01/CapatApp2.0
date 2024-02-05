@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 
-
 class MenuDias : Fragment() {
 
     override fun onCreateView(
@@ -19,56 +18,54 @@ class MenuDias : Fragment() {
 
         val btnDomingoRamos = root.findViewById<Button>(R.id.btnDomingoRamos)
         btnDomingoRamos.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesDomingoRamos"))
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Domingo de Ramos")
+            findNavController().navigate(action)
         }
 
         val btnLunesSanto = root.findViewById<Button>(R.id.btnLunesSanto)
         btnLunesSanto.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesLunesSanto"))
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Lunes Santo")
+            findNavController().navigate(action)
         }
 
         val btnMartesSanto = root.findViewById<Button>(R.id.btnMartesSanto)
         btnMartesSanto.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesMartesSanto"))
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Martes Santo")
+            findNavController().navigate(action)
         }
 
         val btnMiercolesSanto = root.findViewById<Button>(R.id.btnMiercolesSanto)
         btnMiercolesSanto.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesMiercolesSanto"))
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Miercoles Santo")
+            findNavController().navigate(action)
         }
 
         val btnJuevesSanto = root.findViewById<Button>(R.id.btnJuevesSanto)
         btnJuevesSanto.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesJuevesSanto"))
-        }
-
-        val btnMadruga = root.findViewById<Button>(R.id.btnMadruga)
-        btnMadruga.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesMadruga"))
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Jueves Santo")
+            findNavController().navigate(action)
         }
 
         val btnViernesSanto = root.findViewById<Button>(R.id.btnViernesSanto)
         btnViernesSanto.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesViernesSanto"))
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Viernes Santo")
+            findNavController().navigate(action)
         }
 
         val btnSabadoSanto = root.findViewById<Button>(R.id.btnSabadoSanto)
         btnSabadoSanto.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesSabadoSanto"))
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Sabado Santo")
+            findNavController().navigate(action)
         }
 
         val btnDomingoResurreccion = root.findViewById<Button>(R.id.btnDomingoResurreccion)
         btnDomingoResurreccion.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesDomingoResurreccion"))
-        }
-
-        val btnTodasLasHermandades = root.findViewById<Button>(R.id.btnTodasLasHermandades)
-        btnTodasLasHermandades.setOnClickListener {
-            findNavController().navigate(MenuDiasDirections.actionMenuDiasToDia(name = "hermandadesList"))
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Domingo de Resurrección")
+            findNavController().navigate(action)
         }
 
 
         return root
-
     }
 }
+

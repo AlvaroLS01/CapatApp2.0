@@ -21,7 +21,7 @@ class HermandadesViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
 
     fun render(hermandadesModel: Hermandades) {
-        hermandad.text = hermandadesModel.hermandad
+        hermandad.text = hermandadesModel.nombre
         iglesia.text = hermandadesModel.iglesia
         dia.text = hermandadesModel.dia
         Glide.with(itemView).load(hermandadesModel.photo).into(photo)

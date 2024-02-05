@@ -22,7 +22,7 @@
         android:label="fragment_dia"
         tools:layout="@layout/fragment_dia" >
         <argument
-            android:name="name"
+            android:name="dia"
             app:argType="string" />
     </fragment>
     <activity
