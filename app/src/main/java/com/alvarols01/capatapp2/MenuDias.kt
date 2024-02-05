@@ -46,6 +46,12 @@ class MenuDias : Fragment() {
             findNavController().navigate(action)
         }
 
+        val btnMadruga = root.findViewById<Button>(R.id.btnMadruga)
+        btnMadruga.setOnClickListener {
+            val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Madrugá")
+            findNavController().navigate(action)
+        }
+
         val btnViernesSanto = root.findViewById<Button>(R.id.btnViernesSanto)
         btnViernesSanto.setOnClickListener {
             val action = MenuDiasDirections.actionMenuDiasToDia(dia = "Viernes Santo")
