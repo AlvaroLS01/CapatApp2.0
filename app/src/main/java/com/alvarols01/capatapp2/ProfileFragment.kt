@@ -13,6 +13,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.alvarols01.capatapp2.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -28,9 +30,7 @@ class ProfileFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
         val btnLogout: Button = view.findViewById(R.id.btnLogout)
-        val btnGuardar: Button = view.findViewById(R.id.btnGuardar)
-        val btnRecuperar: Button = view.findViewById(R.id.btnRecuperar)
-        val btnEliminar: Button = view.findViewById(R.id.btnEliminar)
+        val btnEditar: Button = view.findViewById(R.id.btnEditar)
 
         val emailTextView : TextView = view.findViewById(R.id.emailTextView)
         val providerTextView : TextView = view.findViewById(R.id.providerTextView)
@@ -54,62 +54,23 @@ class ProfileFragment : Fragment() {
 
 
         }
+        db.collection("usuarios").document(email).get().addOnSuccessListener {
+            editTelefono.setText(it.get("telefono") as String?)
+            editNombreUsuario.setText(it.get("nombre") as String?)
+        }
 
         btnLogout.setOnClickListener {
             logout()
         }
 
-        btnGuardar.setOnClickListener {
-            val nombre = editNombreUsuario.text.toString()
-            val telefono = editTelefono.text.toString()
+        btnEditar.setOnClickListener {
+            // Obtén el NavController desde el fragmento actual
+            val navController = findNavController()
 
-            if (nombre.isNotEmpty() && telefono.isNotEmpty()) {
-                val userData = hashMapOf(
-                    "nombre" to nombre,
-                    "telefono" to telefono
-                )
-
-                val currentUser = FirebaseAuth.getInstance().currentUser
-                val email = currentUser?.email
-
-                if (email != null) {
-                    // Usar el correo electrónico como identificador único en la base de datos
-                    db.collection("usuarios").document(email).set(userData)
-                        .addOnSuccessListener {
-                            Log.d("ProfileFragment", "Datos guardados correctamente")
-                            // Mostrar mensaje al usuario, si es necesario
-                        }
-                        .addOnFailureListener { e ->
-                            Log.w("ProfileFragment", "Error al guardar datos", e)
-                            // Manejar el error, mostrar mensaje al usuario
-                        }
-                }
-            } else {
-                // Manejar el caso en que los campos están vacíos
-                Log.d("ProfileFragment", "Nombre o teléfono están vacíos")
-            }
-
+            // Navega al fragmento "Editar"
+            navController.navigate(R.id.editar) // Reemplaza "editarFragment" con el ID real de tu fragmento de edición
         }
 
-        btnRecuperar.setOnClickListener {
-            db.collection("usuarios").document(email).get().addOnSuccessListener {
-                editTelefono.setText(it.get("telefono") as String?)
-                editNombreUsuario.setText(it.get("nombre") as String?)
-
-                }
-
-        }
-
-        btnEliminar.setOnClickListener {
-            db.collection("usuarios").document(email).delete().addOnSuccessListener {
-                Log.d("ProfileFragment", "Datos eliminados correctamente")
-                // Mostrar mensaje al usuario, si es necesario
-            }
-                .addOnFailureListener { e ->
-                    Log.w("ProfileFragment", "Error al eliminar datos", e)
-                    // Manejar el error, mostrar mensaje al usuario
-                }
-        }
 
         return view
     }

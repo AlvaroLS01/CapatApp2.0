@@ -73,5 +73,9 @@
         android:id="@+id/registroActivity"
         android:name="com.alvarols01.capatapp2.RegistroActivity"
         android:label="RegistroActivity" />
+    <fragment
+        android:id="@+id/editar"
+        android:name="com.alvarols01.capatapp2.Editar"
+        android:label="Editar" />
 
 </navigation>

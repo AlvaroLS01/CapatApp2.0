@@ -67,7 +67,7 @@
         android:textSize="16sp"
         android:textColor="@color/colorPrimary" />
 
-    <TextView
+    <EditText
         android:id="@+id/editNombreUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
         android:textStyle="bold"
         android:textColor="@color/colorAccent" />
 
-    <TextView
+    <EditText
         android:id="@+id/editTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,8 +91,9 @@
         android:textStyle="bold"
         android:textColor="@color/colorAccent" />
 
+
     <Button
-        android:id="@+id/btnEditar"
+        android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -100,18 +101,27 @@
         android:layout_below="@id/editTelefono"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Editar" />
-
-
+        android:text="Guardar" />
     <Button
-        android:id="@+id/btnLogout"
+        android:id="@+id/btnVolverAProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorprincipal"
-        android:textColor="@color/white"
-        android:layout_below="@id/btnEditar"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:layout_below="@id/btnEliminar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Logout" />
+        android:text="Volver al Perfil" />
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:layout_below="@id/btnGuardar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Eliminar Datos" />
+
 
 </RelativeLayout>
