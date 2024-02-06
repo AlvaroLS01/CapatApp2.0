@@ -3,6 +3,7 @@ package com.alvarols01.capatapp2
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,18 +29,24 @@ class Dia : Fragment(R.layout.fragment_dia) {
                 if (querySnapshot != null) {
                     val hermandadesList = mutableListOf<Hermandades>()
 
-                    for (document in querySnapshot) {
+                    for (document in querySnapshot.documents) {
                         val hermandad = document.toObject(Hermandades::class.java)
-                        hermandadesList.add(hermandad)
+                        if (hermandad != null) {
+                            hermandadesList.add(hermandad)
+                        }
                     }
 
-                    val adapter = HermandadesAdapter(hermandadesList)
+                    val adapter = HermandadesAdapter(hermandadesList) { nombreHermandad ->
+                        // Correctly handling the click on a list item, passing the brotherhood name
+                        val action = DiaDirections.actionDiaToDetalleFragment(nombreHermandad = nombreHermandad)
+                        findNavController().navigate(action)
+                    }
                     recyclerView.adapter = adapter
                 }
             }
             .addOnFailureListener { exception ->
-                // Maneja el error adecuadamente
-                println("Error al cargar las hermandades: $exception")
+                // Handle the error appropriately
+                println("Error cargando las hermandades: $exception")
             }
     }
 }

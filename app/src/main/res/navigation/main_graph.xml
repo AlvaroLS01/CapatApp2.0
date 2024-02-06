@@ -9,46 +9,69 @@
         android:id="@+id/menuDias"
         android:name="com.alvarols01.capatapp2.MenuDias"
         android:label="fragment_menudias"
-        tools:layout="@layout/fragment_menudias" >
+        tools:layout="@layout/fragment_menudias">
         <action
             android:id="@+id/action_menuDias_to_dia"
             app:destination="@id/dia"
             app:enterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
+
     <fragment
         android:id="@+id/dia"
         android:name="com.alvarols01.capatapp2.Dia"
         android:label="fragment_dia"
-        tools:layout="@layout/fragment_dia" >
+        tools:layout="@layout/fragment_dia">
         <argument
             android:name="dia"
             app:argType="string" />
+        <action
+            android:id="@+id/action_dia_to_detalleFragment"
+            app:destination="@id/detalleFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
+
+    <fragment
+        android:id="@+id/detalleFragment"
+        android:name="com.alvarols01.capatapp2.DetalleFragment"
+        android:label="fragment_detalle"
+        tools:layout="@layout/fragment_detalle">
+        <argument
+            android:name="nombreHermandad"
+            app:argType="string" />
+    </fragment>
+
     <activity
         android:id="@+id/authActivity"
         android:name="com.alvarols01.capatapp2.AuthActivity"
         android:label="AuthActivity" />
+
     <fragment
         android:id="@+id/ProfileFragment"
         android:name="com.alvarols01.capatapp2.ProfileFragment"
         android:label="ProfileFragment" />
+
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.alvarols01.capatapp2.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
+
     <fragment
         android:id="@+id/HomeFragment"
         android:name="com.alvarols01.capatapp2.Home"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+
     <fragment
         android:id="@+id/favoritos"
         android:name="com.alvarols01.capatapp2.Favoritos"
         android:label="Favoritos" />
+
     <activity
         android:id="@+id/registroActivity"
         android:name="com.alvarols01.capatapp2.RegistroActivity"
         android:label="RegistroActivity" />
+
 </navigation>
