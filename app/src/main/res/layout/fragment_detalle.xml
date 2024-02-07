@@ -10,23 +10,63 @@
     android:gravity="center"
     tools:context=".DetalleFragment">
 
+    <!-- TextView para el título del nombre de la hermandad -->
+    <TextView
+        android:id="@+id/textViewTituloHermandad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre de la Hermandad"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold|italic" />
+
     <!-- ImageView para la foto de la hermandad -->
     <ImageView
         android:id="@+id/imageViewDetalle"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/ic_launcher_background"
+        android:layout_marginTop="30dp"/>
 
-    <!-- TextView para el nombre de la hermandad -->
+    <!-- TextView para la cabecera "Historia de la Hermandad:" -->
     <TextView
-        android:id="@+id/textViewNombreDetalle"
+        android:id="@+id/textViewHistoriaTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Nombre de la Hermandad"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textStyle="bold|italic" />
+        android:text="Historia de la Hermandad:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textHistoriaHermandad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="METER POR BD LA HISTORIA DE CADA HERMANDAD"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <!-- TextView para "Número de nazarenos:", inicialmente en blanco -->
+    <TextView
+        android:id="@+id/textViewNumeroNazarenos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Número de nazarenos:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textNumeroNazarenos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="DEBO METER POR BD LOS NAZARENOS"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 </LinearLayout>

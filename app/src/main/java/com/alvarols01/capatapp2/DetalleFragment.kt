@@ -26,7 +26,7 @@ class DetalleFragment : Fragment() {
 
         val nombreHermandad = arguments?.getString("nombreHermandad")
         val imageView: ImageView = view.findViewById(R.id.imageViewDetalle)
-        val textViewNombre: TextView = view.findViewById(R.id.textViewNombreDetalle)
+        val textViewNombre: TextView = view.findViewById(R.id.textViewTituloHermandad)
 
         // Busca en Firebase por el nombre de la hermandad
         firestore.collection("hermandades")
