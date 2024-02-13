@@ -26,10 +26,10 @@
 
 
     <item
-        android:id="@+id/action_favorite"
+        android:id="@+id/action_chat"
         android:orderInCategory="100"
-        android:icon="@drawable/starfav"
-        android:title="Favoritos"
+        android:icon="@drawable/chaticon"
+        android:title="Chat"
         app:showAsAction="always" />
 
     <item

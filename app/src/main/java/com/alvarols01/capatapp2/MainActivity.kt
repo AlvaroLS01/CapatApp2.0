@@ -75,8 +75,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.action_favorite -> {
-                    findNavController(R.id.navHostFragment).navigate(R.id.favoritos)
+                R.id.action_chat -> {
+                    findNavController(R.id.navHostFragment).navigate(R.id.chat)
                     true
                 }
 

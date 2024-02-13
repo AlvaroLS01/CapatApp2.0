@@ -14,4 +14,9 @@
     <color name="colorprincipal">#6A1B9A</color>
     <color name="colorAccent">#9455BA</color>
     <color name="colorPrimary">#C682EA</color>
-</resources>
+    <color name="primaryTextColor">#1E88E5</color>
+    <color name="secondaryTextColor">#616161</color>
+    <color name="tertiaryTextColor">#9E9E9E</color>
+    <color name="cardBackgroundColor">#FFFFFF</color>
+    </resources>
+
