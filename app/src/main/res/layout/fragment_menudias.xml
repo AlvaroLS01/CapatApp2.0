@@ -64,9 +64,9 @@
         android:text="Domingo de Resurrección" />
 
     <Button
-        android:id="@+id/btnTodasLasHermandades"
+        android:id="@+id/HermandadesFavoritas"
         style="@style/MenuButton"
-        android:text="Todas las Hermandades" />
+        android:text="Favoritos" />
 
 
 

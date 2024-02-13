@@ -15,6 +15,9 @@
             app:destination="@id/dia"
             app:enterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_menuDias_to_favoritosFragment"
+            app:destination="@id/favoritosFragment" />
     </fragment>
 
     <fragment
@@ -64,11 +67,6 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
-        android:id="@+id/favoritos"
-        android:name="com.alvarols01.capatapp2.Favoritos"
-        android:label="Favoritos" />
-
     <activity
         android:id="@+id/registroActivity"
         android:name="com.alvarols01.capatapp2.RegistroActivity"
@@ -81,5 +79,13 @@
         android:id="@+id/chat"
         android:name="com.alvarols01.capatapp2.Chat"
         android:label="Chat" />
+    <fragment
+        android:id="@+id/favoritosFragment"
+        android:name="FavoritosFragment"
+        android:label="FavoritosFragment" >
+        <action
+            android:id="@+id/action_favoritosFragment_to_detalleFragment2"
+            app:destination="@id/detalleFragment" />
+    </fragment>
 
 </navigation>

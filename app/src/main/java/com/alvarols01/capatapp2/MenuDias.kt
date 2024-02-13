@@ -70,6 +70,12 @@ class MenuDias : Fragment() {
             findNavController().navigate(action)
         }
 
+        val btnHermandadesFavoritas = root.findViewById<Button>(R.id.HermandadesFavoritas)
+        btnHermandadesFavoritas.setOnClickListener {
+            // Navegar al fragmento de hermandades favoritas
+            findNavController().navigate(MenuDiasDirections.actionMenuDiasToFavoritosFragment())
+        }
+
 
         return root
     }

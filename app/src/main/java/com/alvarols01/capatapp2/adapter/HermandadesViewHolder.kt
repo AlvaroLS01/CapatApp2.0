@@ -1,7 +1,5 @@
 package com.alvarols01.capatapp2.adapter
 
-import android.content.Intent
-import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,37 +8,45 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alvarols01.capatapp2.Hermandades
 import com.alvarols01.capatapp2.R
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
-class HermandadesViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class HermandadesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
+    private val hermandadTextView: TextView = view.findViewById(R.id.tvNombreHermandad)
+    private val iglesiaTextView: TextView = view.findViewById(R.id.tvNombreIglesia)
+    private val diaTextView: TextView = view.findViewById(R.id.tvDia)
+    private val photoImageView: ImageView = view.findViewById(R.id.ivHermandad)
+    private val btnAnadirFavoritos: ImageView = view.findViewById(R.id.btnAnadirFavoritos)
 
-    val hermandad = view.findViewById<TextView>(R.id.tvNombreHermandad)
-    val iglesia = view.findViewById<TextView>(R.id.tvNombreIglesia)
-    val dia = view.findViewById<TextView>(R.id.tvDia)
-    val photo = view.findViewById<ImageView>(R.id.ivHermandad)
-
-
-    fun render(hermandadesModel: Hermandades) {
-        hermandad.text = hermandadesModel.nombre
-        iglesia.text = hermandadesModel.iglesia
-        dia.text = hermandadesModel.dia
-        Glide.with(itemView).load(hermandadesModel.photo).into(photo)
+    fun bind(hermandadesModel: Hermandades, onHermandadClicked: (String) -> Unit, onFavoritosClicked: (Hermandades) -> Unit) {
+        hermandadTextView.text = hermandadesModel.nombre
+        iglesiaTextView.text = hermandadesModel.iglesia
+        diaTextView.text = hermandadesModel.dia
+        Glide.with(itemView.context).load(hermandadesModel.photo).into(photoImageView)
 
         itemView.setOnClickListener {
-            // Llama al nuevo método para abrir la URL
-            openUrl(hermandadesModel.url)
+            onHermandadClicked(hermandadesModel.nombre)
+        }
+
+        btnAnadirFavoritos.setOnClickListener {
+            onFavoritosClicked(hermandadesModel)
+            añadirAFavoritos(hermandadesModel)
         }
     }
 
-    private fun openUrl(url: String) {
-        // Crea un Intent implícito para abrir la URL en un navegador
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        // Comprueba si hay una actividad que pueda manejar el Intent
-        if (intent.resolveActivity(itemView.context.packageManager) != null) {
-            itemView.context.startActivity(intent)
-        } else {
-            // Muestra un mensaje si no hay actividad para manejar el Intent
-            Toast.makeText(itemView.context, "No se puede abrir la URL", Toast.LENGTH_SHORT).show()
-        }
+    private fun añadirAFavoritos(hermandadesModel: Hermandades) {
+        val usuarioEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
+        FirebaseFirestore.getInstance().collection("usuarios")
+            .document(usuarioEmail)
+            .collection("favoritos")
+            .document(hermandadesModel.nombre)
+            .set(hermandadesModel)
+            .addOnSuccessListener {
+                Toast.makeText(itemView.context, "Añadido a favoritos", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(itemView.context, "Error al añadir a favoritos", Toast.LENGTH_SHORT).show()
+            }
     }
-    }
+}
