@@ -3,7 +3,7 @@
 
     <!-- Fondo Degradado -->
     <item android:id="@+id/gradientBackground"
-        android:drawable="@drawable/gradient_background"/>
+        android:drawable="@drawable/fondolog"/>
 
     <item>
         <bitmap

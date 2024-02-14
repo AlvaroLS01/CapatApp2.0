@@ -1,4 +1,3 @@
-import FavoritosFragmentDirections.FavoritosFragmentDirections.Companion.actionFavoritosFragmentToDetalleFragment2
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater

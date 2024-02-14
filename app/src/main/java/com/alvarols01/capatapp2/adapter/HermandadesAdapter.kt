@@ -52,26 +52,40 @@ class HermandadesAdapter(
 
         private fun añadirAFavoritos(hermandad: Hermandades) {
             val emailUsuario = FirebaseAuth.getInstance().currentUser?.email ?: return
-            val favoritosRef = FirebaseFirestore.getInstance()
-                .collection("usuarios")
-                .document(emailUsuario)
-                .collection("favoritos")
+            val db = FirebaseFirestore.getInstance()
+            val favoritosRef = db.collection("usuarios").document(emailUsuario).collection("favoritos")
+            val docRef = favoritosRef.document(hermandad.nombre)
 
-            val favorito = hashMapOf(
-                "nombre" to hermandad.nombre,
-                "iglesia" to hermandad.iglesia,
-                "dia" to hermandad.dia,
-                "photo" to hermandad.photo,
-                "url" to hermandad.url
-            )
+            docRef.get().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val document = task.result
+                    if (document != null && document.exists()) {
+                        // La hermandad ya está en favoritos, así que la eliminamos
+                        docRef.delete().addOnSuccessListener {
+                            Toast.makeText(itemView.context, "Hermandad eliminada de favoritos", Toast.LENGTH_SHORT).show()
+                        }.addOnFailureListener { e ->
+                            Toast.makeText(itemView.context, "Error al eliminar hermandad de favoritos", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        // La hermandad no está en favoritos, así que la añadimos
+                        val favorito = hashMapOf(
+                            "nombre" to hermandad.nombre,
+                            "iglesia" to hermandad.iglesia,
+                            "dia" to hermandad.dia,
+                            "photo" to hermandad.photo,
+                            "url" to hermandad.url
+                        )
 
-            favoritosRef.document(hermandad.nombre).set(favorito)
-                .addOnSuccessListener {
-                    Toast.makeText(itemView.context, "Hermandad añadida a favoritos", Toast.LENGTH_SHORT).show()
+                        docRef.set(favorito).addOnSuccessListener {
+                            Toast.makeText(itemView.context, "Hermandad añadida a favoritos", Toast.LENGTH_SHORT).show()
+                        }.addOnFailureListener { e ->
+                            Toast.makeText(itemView.context, "Error al añadir hermandad a favoritos", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    Toast.makeText(itemView.context, "Error al comprobar el estado de favoritos", Toast.LENGTH_SHORT).show()
                 }
-                .addOnFailureListener { e ->
-                    Toast.makeText(itemView.context, "Error al añadir hermandad a favoritos", Toast.LENGTH_SHORT).show()
-                }
+            }
         }
     }
 }
